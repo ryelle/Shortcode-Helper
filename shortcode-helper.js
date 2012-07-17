@@ -31,5 +31,8 @@ tinymce.PluginManager.add('rrn_shortcode', tinymce.plugins.RrnShortcode);
 			$("#shortcode-field").val('');
 			tb_remove();
 		});
+		$(".rrn-shortcode-helper .shortcode-list li").click(function(){
+			$("#shortcode-field").val($(this).text());
+		});
 	});
 })(jQuery)

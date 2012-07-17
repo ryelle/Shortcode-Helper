@@ -25,6 +25,11 @@ function rrn_shortcode_helper_add_button( $in ){
 
 function rrn_shortcode_helper_popup() { ?>
 	<style>
+	#TB_ajaxContent {
+		width: 100% !important;
+		box-sizing: border-box;
+		height: 100% !important;
+	}
 	.rrn-shortcode-helper input[type="text"] {
 		width: 100%;
 		margin: 5px 1px 1px;
@@ -54,16 +59,35 @@ function rrn_shortcode_helper_popup() { ?>
 		line-height: 23px;
 		float: right;
 	}
+	.rrn-shortcode-helper hr {
+		border: none;
+		padding: 0;
+		margin: 0;
+		height: 1px;
+		background: #f1f1f1;
+	}
 	.rrn-shortcode-helper .howto {
 		clear: both;
-		
+	}
+	.shortcode-list {
+		border: 1px solid #f1f1f1;
+		border-bottom: none;
+	}
+	.shortcode-list li {
+		border-bottom: 1px solid #f1f1f1;
+		color: #333;
+		padding: 4px 6px;
+		margin: 0;
+		cursor: pointer;
+		position: relative;
 	}
 	</style>
-	<div style="display:none;" id="rrn-shortcode-helper" >
-	<form class='rrn-shortcode-helper' tabindex="-1">
+	<div style="display:none; overflow: auto;" id="rrn-shortcode-helper" >
+	<form class='rrn-shortcode-helper'>
 		<?php wp_nonce_field( 'create_shortcode', '_ajax_rrn_shortcode_nonce', false ); ?>
 		<div id="shortcode-create">
 			<p class="howto"><?php _e( 'Enter your shortcode & options, without the brackets.' ); ?></p>
+			<p class="howto"><?php printf( __( 'For example, to insert a gallery, use %s or %s. It will auto-detect if it needs a closing tag, and will wrap the currently highlighted text.' ), '<code>gallery</code>', '<code>gallery columns="4"</code>'); ?></p>
 			<div>
 				<input id="shortcode-field" type="text" tabindex="10" name="shortcode" />
 			</div>
@@ -73,7 +97,14 @@ function rrn_shortcode_helper_popup() { ?>
 				<input type="submit" tabindex="100" value="<?php esc_attr_e( 'Add Shortcode' ); ?>" class="button-primary" id="rrn-shortcode-helper-submit" name="wys-menu-submit">
 			</div>
 		</div>
-		<p class="howto"><?php printf( __( 'For example, to insert a gallery, type %s or %s. It will auto-detect if it needs a closing tag, and will wrap the currently highlighted text.' ), '<code>gallery</code>', '<code>gallery columns="4"</code>'); ?></p>
+		<hr />
+		<p class="howto">Choose from existing shortcodes</p>
+		<ul class="shortcode-list">
+			<?php global $shortcode_tags; foreach( array_keys($shortcode_tags) as $i => $tag) {
+				$class = ( $i % 2 )? 'class="alternate"': '';
+				printf('<li %s>%s</li>', $class, $tag);
+			} ?>
+		</ul>
 	</form>
 	</div>
 <?php }	add_action( 'admin_footer', 'rrn_shortcode_helper_popup' );
