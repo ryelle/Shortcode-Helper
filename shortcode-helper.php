@@ -7,7 +7,7 @@
  * Author URI: http://redradar.net
  * Plugin URI: http://me.redradar.net/404
  * License: GPL2
- * Date: 6.02.2012
+ * Date: 7.15.2012
  */
 
 /**
