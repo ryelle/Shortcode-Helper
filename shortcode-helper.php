@@ -77,3 +77,23 @@ function rrn_shortcode_helper_popup() { ?>
 	</form>
 	</div>
 <?php }	add_action( 'admin_footer', 'rrn_shortcode_helper_popup' );
+
+function rrn_shortcode_helper_menu_icon() { ?>
+    <style>
+    .wp_themeSkin span.mce_rrn_shortcode {
+        background: url('<?php echo plugins_url("icon-grey-1x.png",__FILE__); ?>') no-repeat center;
+    }
+    .wp_themeSkin span.mce_rrn_shortcode:hover {
+        background: url('<?php echo plugins_url("icon-color-1x.png",__FILE__); ?>') no-repeat center;
+    }
+    only screen and (-webkit-min-device-pixel-ratio : 1.5),
+    only screen and (min-device-pixel-ratio : 1.5) {
+        .wp_themeSkin span.mce_rrn_shortcode {
+            background: url('<?php echo plugins_url("icon-grey-2x.png",__FILE__); ?>') no-repeat center;
+        }
+        .wp_themeSkin span.mce_rrn_shortcode:hover {
+            background: url('<?php echo plugins_url("icon-color-2x.png",__FILE__); ?>') no-repeat center;
+        }
+    } 
+    </style>
+<?php } add_action( 'before_wp_tiny_mce', 'rrn_shortcode_helper_menu_icon' );
