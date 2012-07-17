@@ -1,3 +1,7 @@
+Inspired in a roundabout way by @professor's talk at WordCamp Boston- particularly using shortcodes to identify conditional content. I've had clients who were very confused by shortcodes, and I wonder if a plugin like this would help. Very simple, zero configuration, just creates a WYSIWYG button.
+
+This still needs to be tested outside of my development environment, so your mileage may vary.
+
 === Plugin Name ===
 Contributors: ryelle
 Tags: shortcode, tinymce, wysiwyg
