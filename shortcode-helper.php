@@ -70,7 +70,7 @@ function rrn_shortcode_helper_popup() { ?>
 		</div>
 		<div class="submitbox">
 			<div id="rrn-shortcode-helper-update">
-				<input type="submit" tabindex="100" value="<?php esc_attr_e( 'Add Item' ); ?>" class="button-primary" id="rrn-shortcode-helper-submit" name="wys-menu-submit">
+				<input type="submit" tabindex="100" value="<?php esc_attr_e( 'Add Shortcode' ); ?>" class="button-primary" id="rrn-shortcode-helper-submit" name="wys-menu-submit">
 			</div>
 		</div>
 		<p class="howto"><?php printf( __( 'For example, to insert a gallery, type %s or %s. It will auto-detect if it needs a closing tag, and will wrap the currently highlighted text.' ), '<code>gallery</code>', '<code>gallery columns="4"</code>'); ?></p>
